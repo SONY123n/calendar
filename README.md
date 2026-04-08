@@ -5,15 +5,7 @@ It is designed to bridge the gap between digital utility and physical aesthetics
 
 Instead of following the typical flat design trend, this project focuses on recreating the experience of using a real paper calendar—something familiar, tactile, and visually engaging.
 
-Live Demo: https://sonycalendar.netlify.app/
-
----
-
-## Demo
-
-https://github.com/user-attachments/assets/REPLACE_WITH_YOUR_VIDEO_LINK
-
----
+Live Demo: https://calendarsony.netlify.app/
 
 ## Concept and Design Philosophy
 
