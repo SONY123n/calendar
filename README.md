@@ -1,165 +1,218 @@
-# Vellum: An Artisan Wall Calendar
+# An Interactive Wall Calendar Built with React
 
-Vellum is a skeuomorphic, interactive wall calendar built with React.
-It is designed to bridge the gap between digital utility and physical aesthetics.
+This project is an interactive wall calendar built using React.
 
-Instead of following the typical flat design trend, this project focuses on recreating the experience of using a real paper calendar—something familiar, tactile, and visually engaging.
+The idea behind it is to make a digital calendar feel like a real one, instead of just displaying dates on a screen.
 
 Live Demo: https://calendarsony.netlify.app/
 
-## Concept and Design Philosophy
+---
+## What this project does
 
-This project started with a simple question:
+This is not just a normal calendar.
 
-"Why does digital have to feel digital?"
+It is designed to feel like a real wall calendar with:
 
-Most calendar applications today are purely functional and visually flat. Vellum explores skeuomorphism—a design approach that mimics real-world objects to create a more intuitive and engaging user experience.
-
-### Key design elements:
-
-* Paper textures using subtle grain and notebook-style lines
-* 3D spiral binder rings to simulate a physical calendar
-* A tear-off interaction that mimics removing a page
-* Dynamic background imagery that changes with each month
-
-The goal was to make the interface feel natural rather than purely functional.
+- A large image for each month
+- A paper-like background
+- Notebook-style lines for writing memos
+- A layout similar to a real calendar hanging on a wall
 
 ---
 
-## Core Features
+## Features
 
-### 1. Dynamic Monthly Navigation
+### Realistic calendar UI
 
-* Smooth transitions between months
-* Fully custom-built calendar logic without external libraries
+- Top section shows a monthly image
+- Spiral rings are added to look like a real calendar
+- Date area has a paper texture
+- Memo section looks like a notebook
 
-### 2. Smart "Today" Detection
+---
 
-* Automatically identifies the current date
-* Highlights it with a distinct visual indicator and animation
+### Click and view day (Sticky note)
 
-### 3. Event and Memo Management
+- Double click on any date
+- A popup opens like a sticky note
+- It shows:
+  - Date
+  - Day
+  - Your tasks for that day
 
-* Users can add notes to any date
-* Data is stored using localStorage
-* No backend required
-* Events persist across page refresh
+---
 
-### 4. Interactive Tear-Off View
+### Select date range
 
-* Double-clicking a date triggers a tear-off animation
-* Opens a focused view for that specific day
+- Click once → start date
+- Click again → end date
+- All days in between are highlighted
 
-### 5. Responsive Design
+You can add a task for the full selected range.
 
-* Desktop layout uses a side-by-side notebook style
-* Mobile layout stacks vertically for better usability
+---
+
+### Add and manage tasks
+
+- Add new tasks
+- Add tasks for a range of days
+- Delete tasks anytime
+
+---
+
+### Local storage (No backend)
+
+- All tasks are stored in browser
+- Data stays even after refresh
+- No API or backend is used
+
+---
+
+### Memo section
+
+- Shows all tasks for the current month
+- Looks like a notebook with lines
+- Keeps everything organized
+
+---
+
+### Today highlight
+
+- Current date is automatically detected
+- Highlighted clearly with animation
+
+---
+
+### Responsive design
+
+Works on both desktop and mobile
+
+Desktop:
+- Calendar and memos side by side
+
+Mobile:
+- Layout becomes vertical
+- Easy to use on touch screens
+
+---
+
+### Monthly themes
+
+- Each month has a different image
+- Accent colors change automatically
+- Smooth transitions between months
 
 ---
 
 ## Tech Stack
 
-* React (Vite) for component-based UI development
-* Tailwind CSS for styling and responsive layout
-* Framer Motion for animations and transitions
-* date-fns for calendar logic and date handling
-* Lucide React for icons
+- React (Vite)
+- Tailwind CSS
+- Framer Motion
+- date-fns
+- Lucide React
 
 ---
 
-## Key Imports
+## Important Imports
 
-```js
-import React, { useState, useEffect } from 'react';
-```
+import React, { useState, useEffect, useRef }
 
-Used to manage state such as current date, events, and UI interactions.
-
-```js
-import CalendarFrame from './components/CalendarFrame.jsx';
-```
-
-Handles the main layout including header, background, and overall structure.
-
-```js
-import {
-  format, addMonths, subMonths,
-  startOfMonth, endOfMonth,
-  eachDayOfInterval,
-  isSameDay,
-  startOfWeek, endOfWeek
-} from 'date-fns';
-```
-
-Used for generating the calendar grid, navigating months, formatting dates, and detecting the current day.
-
-```js
-import { motion, AnimatePresence } from 'framer-motion';
-```
-
-Used for page transitions, modal animations, and the tear-off interaction.
-
-```js
-import { Bell, ChevronLeft, ChevronRight, X, Trash2 } from 'lucide-react';
-```
-
-Provides icons for navigation and UI actions.
+Used for managing state and handling UI interactions.
 
 ---
 
-## Implementation Details
+import CalendarFrame from './components/CalendarFrame.jsx'
 
-This project does not rely on any pre-built calendar libraries.
-
-Instead:
-
-* The calendar grid is generated manually using date-fns
-* UI elements are designed to replicate physical objects
-* Custom CSS layers are used to create paper textures, notebook lines, and spiral rings
-
-This approach provided full control over both functionality and design.
+Handles the layout of the calendar including header and structure.
 
 ---
 
-## Directory Structure
+import { format, addMonths, subMonths, startOfMonth, endOfMonth, eachDayOfInterval, isSameDay, startOfWeek, endOfWeek, isWithinInterval } from 'date-fns'
 
-```
+Used for:
+
+- Creating calendar grid
+- Navigating months
+- Formatting dates
+- Checking today
+- Handling range selection
+
+---
+
+import { motion, AnimatePresence } from 'framer-motion'
+
+Used for animations like:
+
+- Page transitions
+- Popup animations
+- Smooth UI effects
+
+---
+
+import { Bell, ChevronLeft, ChevronRight, Trash2, Sparkles, XCircle } from 'lucide-react'
+
+Used for icons in the UI.
+
+---
+
+## How it works
+
+- Calendar grid is created using date-fns
+- Range selection is handled using start and end dates
+- Selected range is highlighted using isWithinInterval
+- Tasks are stored in localStorage
+- UI is built using Tailwind CSS
+
+No external calendar library is used.
+
+---
+
+## Folder Structure
+
 src/
-│
-├── components/
-│   └── CalendarFrame.jsx
-│
-├── App.jsx
-├── main.jsx
-├── index.css
-```
+
+components/
+CalendarFrame.jsx
+
+App.jsx
+main.jsx
+index.css
 
 ---
 
-## Local Development
+## Run this project
 
-```
 git clone https://github.com/SONY123n/wall_calendar.git
 cd wall_calendar
 npm install
 npm run dev
-```
 
 ---
 
-## Future Improvements
+## Future improvements
 
-* Google Calendar integration
-* Drag and drop events
-* Backend support for real-time data
-* Dark mode
-* Page flip animation
+- Drag and drop tasks
+- Dark mode
+- Cloud sync
+- Better animations
+- Task categories
 
 ---
 
-## About the Author
+## About me
 
-I am Sony Jarupula, a B.Tech Computer Science student at NIT Agartala.
-My focus is on frontend engineering and building interfaces that are both intuitive and visually distinct.
+I am Sony Jarupula, a B.Tech CSE student at NIT Agartala.
 
-This project reflects my interest in combining strong logic with thoughtful user experience design.
+I enjoy building projects that are simple, useful, and feel good to use.
+
+This project shows my interest in frontend development and UI design.
+
+---
+
+## Note
+
+This project is built completely from scratch.
+
+No calendar libraries are used.
+Everything is custom built.
