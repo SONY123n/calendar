@@ -183,7 +183,7 @@ index.css
 
 ## Run this project
 
-git clone https://github.com/SONY123n/wall_calendar.git
+git clone https://github.com/SONY123n/calendar
 cd wall_calendar
 npm install
 npm run dev
